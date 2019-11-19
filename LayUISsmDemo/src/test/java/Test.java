@@ -64,4 +64,10 @@ public class Test {
     System.out.println(studentmapper.findAllTeachersInStudent());
   }
 
+
+    @org.junit.Test
+    public void test05(){
+        System.out.println(studentmapper.findAllTeachersInStudent());
+    }
+
 }
