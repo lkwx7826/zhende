@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhende.mapper.TeachersMapper">
+    <select id="findTeacherAll" resultType="com.zhende.domain.Teachers">
+
+        select * from teachers;
+    </select>
+
+    <resultMap id="teachersMap" type="teachers">
+        <id column="tid" property="id"/>
+        <result column="tname" property="name"/>
+        <association property="course" javaType="course">
+
+            <result column="cname" property="name"></result>
+        </association>
+
+    </resultMap>
+
+    <select id="findTeacherAndCourse" resultMap="teachersMap">
+
+        select t.id tid, t.NAME tname,c.name cname from teachers t,courses c where t.cid = c.id
+    </select>
+
+
+</mapper>
